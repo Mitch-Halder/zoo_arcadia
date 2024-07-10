@@ -92,7 +92,7 @@ section{
     left: 0;
     right: 0;
     z-index: 1000;
-    background: var(--white);
+    background: var(--bg);
     box-shadow: var(--box-shadow);
     display: flex;
     align-items: center;
@@ -252,10 +252,6 @@ section{
     line-height: 2;
 }
 
-.a_propos .content span{
-    text-transform: lowercase;
-}
-
 .a_propos .content .icons-container{
     display: flex;
     flex-wrap: wrap;
@@ -394,13 +390,51 @@ section{
     transform: translateY(-20px);
 }
 
-/*fin gallerie*/
+/*fin habitats*/
+
+/*services*/
+
+.services{
+    background: var(--bg);
+}
+
+.services .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(25rem, 1fr));
+    gap: 2rem;
+}
+
+.services .box-container .box{
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.services .box-container .box img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.services .box-container .box .content{
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    z-index: 1;
+}
+
+.services .box-container .box .content h3{
+    text-align: center;
+    font-size: 3rem;
+    color: var(--white);
+}
+
+/*fin services*/
 
 /*bannière*/
-
-.banniere{
-    background: url(Images_zoo/ai-generated-8201419_1920.png) no-repeat;
-}
 
 .banniere .row{
     display: flex;
@@ -435,6 +469,15 @@ section{
 .banniere .row .image img{
     width: 100%;
     border-radius: 90%;
+}
+
+.banniere .row .image2{
+    flex: 1 1 41rem;
+}
+
+.banniere .row .image2 img{
+    width: 100%;
+    border-radius: 30%;
 }
 
 /*fin bannière*/
@@ -489,7 +532,6 @@ section{
 .contact{
     background: var(--bg);
 }
-
 .contact form{
     padding: 2rem 10%;
     text-align: center;
@@ -527,7 +569,7 @@ section{
 /*footer*/
 
 .footer{
-    background: url(Images_zoo/fond_contact.jpg) no-repeat;
+    background: var(--bg);
     background-size: cover;
     padding: 3rem 7%;
 }
@@ -547,7 +589,7 @@ section{
 .footer .box-container .box p{
     font-size: 1.5rem;
     line-height: 1.8;
-    color: var(--white);
+    color: var(--black);
     padding: 1rem 0;
 }
 
@@ -555,7 +597,7 @@ section{
 .footer .box-container .box .links{
     display: block;
     font-size: 1.5rem;
-    color: var(--white);
+    color: var(--black);
     padding: 1rem 0;
 }
 
@@ -686,5 +728,8 @@ section{
     }
     .gallery{
         display: none;
+    }
+    img{
+        width: 50%;
     }
 }
