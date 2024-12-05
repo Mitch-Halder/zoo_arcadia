@@ -1,4 +1,39 @@
 <?php
+    require 'vendor/autoload.php';
+    $client = new MongoDB\Client("mongodb://localhost:27017"); 
+    $database = $client->selectDatabase('ARCADIA'); 
+    $collection = $database->selectCollection('Services');
+    
+    $result = $collection->find();
+    function buildArrayFromIterable($iterable) {
+        $result = [];
+    
+        foreach ($iterable as $element) {
+            $result[] = (array) $element;
+        }
+    
+        return $result;
+    }
+    $resultArray=buildArrayFromIterable($result);
+    
+    foreach($resultArray as $service):
+        print_r($service['Name']);
+        ?>
+            <div class="box" id="churros">
+                <img src="Images_zoo/services/churros-2188871_1920.jpg" alt="churros">
+                    <div class="content">
+                        <h3><?php
+                            echo htmlspecialchars($service['Name']);
+                    ?>
+                        </h3>
+                    </div>
+            </div>
+        <?php endforeach;
+    /*foreach ($result as $entry) {
+        echo '<pre>';
+        print_r((array) $entry);
+        echo '</pre>';
+    }*/
     session_start();
     include './includes/config.php';
     /*if (!isset($_SESSION['user']))
@@ -13,8 +48,8 @@
     <head>
         <style>
             img{
-                width: 50px;
-                height: 50px;
+                width: 100px;
+                height: 100px;
             }
         </style>
     </head>

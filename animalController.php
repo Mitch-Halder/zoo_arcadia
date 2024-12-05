@@ -1,7 +1,7 @@
 <?php
     /*session_start();*/
     class AnimalController {
-        private $pdo;
+        public $pdo;
         public function __construct(){
             require_once __DIR__.'/includes/config.php';
             $this->pdo=$pdo;
@@ -34,4 +34,7 @@
             $create->bindParam(':images_animal', $images_animal);
             return $create->execute();
         }
+        public function getPdo(){
+            return $this->pdo;
+        } 
     }
