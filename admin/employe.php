@@ -32,8 +32,8 @@
     <head>
         <style>
             .option-image{
-                width: 50px;
-                height: 80px;
+                width: 150px;
+                height: 150px;
             }
             .options {
                 display: flex;

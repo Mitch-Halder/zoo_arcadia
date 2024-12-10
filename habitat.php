@@ -1,6 +1,7 @@
 <?php
     session_start();
     include './includes/config.php';
+    include 'includes/header.php';
     /*if (!isset($_SESSION['user']))
     {
         header('Location: login.php');
@@ -17,25 +18,30 @@
 
         </style>
     </head>
+    <body>
+    <div class="card-list">
+
     <?php foreach ($habitat as $row) :?>
-        <li>
             <div class="card">
                 <?php
-                    $imageLinks=$row['images'];
+                    $imageLinks=$row['images_animal'];
                         if ($imageLinks){
                             $imageLinks=trim($imageLinks,'{}');
                             $imageArray=explode(',', $imageLinks);
                             $imageArray = array_map(function($item) {
                                 return str_replace("'", "", $item);
                             }, $imageArray);
+                            $imageArray = array_map(function($item) {
+                                return str_replace('"', "", $item);
+                            }, $imageArray);
                         }
                 ?>
                 <?php if (!empty($imageArray)):?>
-                    <div class="image-gallery">
+                    
                         <?php foreach($imageArray as $imageLink):?>
-                            <img src="/project/<?php echo htmlspecialchars($imageLink);?>" alt="">
+                            <img class="image_gallery" src="/project/<?php echo htmlspecialchars($imageLink);?>" alt="">
                         <?php endforeach;?>
-                    </div>
+                    
                     <?php else: ?>
                         <p>
                             aucune image disponible pour cet animal
@@ -45,6 +51,7 @@
                             <a href="/project/animal.php?id=<?php echo htmlspecialchars($row['animal_id'])?>">
                                 <button>Voir animal</button></a>
                 </div>
-        </li>
         <?php endforeach;?>
+                    </div>
+                    </body>
 </html>
