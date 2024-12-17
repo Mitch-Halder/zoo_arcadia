@@ -1,7 +1,7 @@
 <?php
 require 'vendor/autoload.php';
 use MongoDB\Client;
-
+use MongoDB\BSON\ObjectId;
 class AvisController {
     private $collection;
     public function __construct(){
@@ -30,6 +30,11 @@ class AvisController {
         $result = $this->collection->insertOne($avis);
         return $result->getInsertedId();
     }
+    public function updateVisible($id, $isVisible){
+        $this->collection->updateOne(['_id'=>new ObjectId ($id)], ['$set'=>['isVisible'=>$isVisible]]);
+    }
 }
+
+    
 
 ?>

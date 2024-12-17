@@ -1,7 +1,8 @@
 <?php
+    include 'includes/header.php';
     require 'avisController.php';
     $avisController = new AvisController();
-    print_r($avisController->getAllAvis()); 
+    //print_r($avisController->getAllAvis()); 
     if (isset($_GET['action'])){
         $action=$_GET['action'];
         switch ($action){
@@ -19,11 +20,11 @@
         }
     }
     ?>
-    <form action="avis.php?action=create" method="POST">
+    <form class="avis-form" action="avis.php?action=create" method="POST">
 
             <label for="commentaire">Commentaire</label>
-            <textarea name="commentaire" id="commentaire" cols="30" rows="10"></textarea>
+            <textarea name="commentaire" id="commentaire" cols="50" rows="10"></textarea>
             
     <!--</select>-->
-        <button type="submit">Soumettre</button>
+        <button class="btn" type="submit">Soumettre</button>
     </form>
