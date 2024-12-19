@@ -124,13 +124,12 @@ section {
     margin: 0 1rem;
 }
 
-.center {
-    width: 66%;
-}
 
 .header .navbar a:hover {
     color: var(--main);
 }
+
+
 
 /*fin header*/
 
@@ -582,17 +581,31 @@ section {
 
 .avis-list {
     display: grid;
-    grid-auto-flow: column;
+    grid-auto-rows: auto;
+    grid-template-columns: repeat(auto-fit, minmax(min(100% / 3, max(64px, 100% / 3)), 1fr));
+    grid-template-rows: auto auto;
+    grid-auto-rows: 0px;
+    position: relative;
+    overflow: hidden;
+    place-items: center;
+}
+
+.avis-list>div {
+    flex: 1;
+    min-width: 50%;
+    /* Chaque élément occupe au moins 50% */
+    max-width: 50%;
+    /* Limite chaque élément à 50% */
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 10px;
 }
 
 form.avis-form {
     display: flex;
     flex-direction: column;
-    max-width: 200px;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    left: 50%;
 }
 
 label {
@@ -752,9 +765,42 @@ footer {
     }
 }
 
+@media screen and (min-width: 769px) {
+    #menu-btn {
+        display: none;
+    }
+
+    .center {
+        width: 66%;
+    }
+
+    .user-connexion {
+        float: right;
+        width: 10%;
+        text-align: center;
+    }
+
+}
+
+
 @media screen and (max-width: 768px) {
     #menu-btn {
         display: inline-block;
+    }
+
+    .icons {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .center {
+        width: 15%;
+    }
+
+    .user-connexion {
+        float: right;
+        width: 40%;
+        text-align: center;
     }
 
     .header .navbar {

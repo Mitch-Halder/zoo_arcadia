@@ -30,13 +30,31 @@
                 <a href="/project/home.php#services">Services</a>
                 <a href="/project/home.php#tarifs">Tarifs</a>
                 <a href="/project/home.php#contact">Contact</a>
-                <a href="/project/avis.php#avis">Avis visiteurs</a>
+                <a href="/project/avis.php#avis">Laisser un avis</a>
 
             </nav>
+
+        </div>
+        
+        <div class="user-connexion">
+            <div class="icons">
+            <div id="menu-btn" class="fas fa-bars fa-3x"></div>
+            <i class="fas fa-user fa-3x"></i>
+            </div>
         </div>
 
     </header>
 
-</body>
 
+    <script>
+        let navbar = document.querySelector(".header .navbar");
+        console.log('test');
+
+        document.querySelector('#menu-btn').onclick = () => {
+        navbar.classList.toggle('active');
+}
+
+    </script>
+</body>
+    
 </html>

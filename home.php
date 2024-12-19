@@ -78,7 +78,7 @@
             </div>
     </section>
         
-    <div class="habitats" id="habitats">
+    <section class="habitats" id="habitats">
         <h2 class="heading">
         habitats
         </h2>
@@ -127,7 +127,7 @@
         <?php endforeach;?>
     
     </div>
-</div>
+</section>
 
     <?php $client = new MongoDB\Client("mongodb://localhost:27017"); 
         $database = $client->selectDatabase('ARCADIA'); 
@@ -146,7 +146,7 @@
         $resultArray=buildArrayFromIterable($result);
     ?>
     
-    <div class="services" id="services">
+    <section class="services" id="services">
         <h2 class="heading">services</h2>
             <div class="box-container">
 
@@ -166,7 +166,7 @@
             </div>
         <?php endforeach; ?>
         </div>
-        </div>
+        </section>
         
         <section class="banniere">
             <div class="row">
@@ -250,7 +250,8 @@
                     $avisController = new AvisController();
                     $allAvis = $avisController->getAllAvis();
                     $allAvis = $avisController->buildArrayFromIterable($allAvis);
-                    foreach($allAvis as $avis) : ?>
+                    foreach($allAvis as $avis) : 
+                        if ($avis['isVisible']) : ?>
 
                     
                         <div class="avis-container">
@@ -258,7 +259,8 @@
                     <p><?php echo htmlspecialchars ($avis['commentaire'])?></p>
                     </div>
                     
-                        <?php endforeach; ?>
+                        <?php endif; 
+                    endforeach; ?>
                 </div>
             
 
