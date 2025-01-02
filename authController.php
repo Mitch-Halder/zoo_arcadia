@@ -7,9 +7,13 @@
         $password=$_POST['password'];
         $query=$pdo->prepare('SELECT * FROM users WHERE username= :username AND password= :password');
         $query->execute(['username'=>$username, 'password'=>$password]);
+        $result=$query->fetch(PDO::FETCH_ASSOC);
         if($query->rowCount()>0)
         {
-            $_SESSION['user']=$username;
+            $result=array_diff_key($result, array('password'=>true));
+            print_r($result);
+            $_SESSION['user']=$result;
+            unset($_SESSION['user']['password']);
             header('Location: home.php');
             exit();
         }

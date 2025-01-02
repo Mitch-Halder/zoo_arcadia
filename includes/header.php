@@ -11,7 +11,7 @@
                     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
                     <link rel="stylesheet" href="css/style.css">
             </head>
-
+    <?php session_start();?>
 <body>
 
     <header class="header">
@@ -39,7 +39,13 @@
         <div class="user-connexion">
             <div class="icons">
             <div id="menu-btn" class="fas fa-bars fa-3x"></div>
-            <i class="fas fa-user fa-3x"></i>
+            <?php if(isset($_SESSION['user'])) :?>
+                <h2><?php echo $_SESSION['user']['username'];?></h2>
+                <?php $_SESSION['redirect'] = $_SERVER['REQUEST_URI'];?>
+                <a href="/project/logout.php"><i class="fas fa-sign-out-alt fa-2x"></i></a>
+                <?php else:?>
+            <a href="/project/login.php"><i class="fas fa-user fa-3x"></i></a>
+            <?php endif;?>
             </div>
         </div>
 
