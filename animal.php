@@ -1,6 +1,6 @@
 <?php
     require 'vendor/autoload.php';
-    session_start();
+    include 'includes/header.php';
     include './includes/config.php';
     /*if (!isset($_SESSION['user']))
     {
@@ -19,33 +19,34 @@
         );
     
         if ($updateResult->getMatchedCount() > 0) {
-            echo "Document with animal_id=$animal_id updated: score incremented." . PHP_EOL;
         } else {
     $insertResult = $collection->insertOne([
                 'animal_id' => $animal_id,
                 'score' => 1
             ]);
-            echo "New document created with ID: " . $insertResult->getInsertedId() . PHP_EOL;
         }
     
         return $collection->findOne(['animal_id' => $animal_id]);
     }
 
     $result=incrementScore($collection, $idAnimal);
-    print_r($result);
+
 
     $query=$pdo->prepare('SELECT * FROM animal JOIN race ON animal.race_id=race.race_id JOIN habitat ON animal.habitat_id=habitat.habitat_id WHERE animal.animal_id=?');
     $query->execute([$idAnimal]);
     $animal=$query->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-<html>
-
+<html style="height:100%; overflow:hidden">
+    <body style="height:100%">
+        
+    
+<div class="container">
     <?php foreach ($animal as $row) :?>
 
-        <li>
+        
 
-            <div class="card">
+            <div class="card-animal">
                 
                 <?php
                     $imageLinks=$row['images_animal'];
@@ -64,7 +65,7 @@
 
                         <?php foreach($imageArray as $imageLink):?>
 
-                            <img src="/project/<?php echo htmlspecialchars($imageLink);?>" alt="">
+                            <img class="img-details" src="/project/<?php echo htmlspecialchars($imageLink);?>" alt="">
 
                         <?php endforeach;?>
 
@@ -78,14 +79,16 @@
 
                         <?php endif;?>
 
-                            <?php echo htmlspecialchars($row['prenom']);?>
-                            <?php echo htmlspecialchars($row['etat']);?>
-                            <?php echo htmlspecialchars($row['label']);?>
-                            <?php echo htmlspecialchars($row['nom']);?>
+                            <h4>Prénom</h4><?php echo htmlspecialchars($row['prenom']);?>
+                            <h4>Etat</h4><?php echo htmlspecialchars($row['etat']);?>
+                            <h4>Label</h4><?php echo htmlspecialchars($row['label']);?>
+                            
 
             </div>
 
-        </li>
+        
         
     <?php endforeach;?>
+    </div>
+    </body>
 </html>

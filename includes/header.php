@@ -11,7 +11,13 @@
                     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
                     <link rel="stylesheet" href="css/style.css">
             </head>
-    <?php session_start();?>
+
+
+    <?php require 'guard.php'; 
+    session_start();
+    ?>
+
+
 <body>
 
     <header class="header">
@@ -31,6 +37,9 @@
                 <a href="/project/home.php#tarifs">Tarifs</a>
                 <a href="/project/home.php#contact">Contact</a>
                 <a href="/project/avis.php#avis">Laisser un avis</a>
+                <?php if(isset($_SESSION['user'])&&  $_SESSION['user']['role_id']==1):?>
+                    <a href="/project/admin.php">Admin</a>
+                    <?php endif ?>
 
             </nav>
 

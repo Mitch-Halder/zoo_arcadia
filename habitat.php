@@ -1,5 +1,4 @@
 <?php
-    session_start();
     include './includes/config.php';
     include 'includes/header.php';
     /*if (!isset($_SESSION['user']))
@@ -20,7 +19,8 @@
         <div class="card-list">
 
             <?php foreach ($habitat as $row) :?>
-
+                <a href="/project/animal.php?id=<?php echo htmlspecialchars($row['animal_id']);?>">
+                                  
                 <div class="card">
 
                     <?php
@@ -55,11 +55,10 @@
 
                             <p class="animal-name"><?php echo htmlspecialchars($row['prenom']);?></p>
 
-                                <!--  <a href="/project/animal.php?id=
-                                  <?php //echo htmlspecialchars($row['animal_id'])?>
+                                
 
-                                    <button>Voir animal</button></a>-->
                 </div>
+                                    </a>
 
                     <?php endforeach;?>
 

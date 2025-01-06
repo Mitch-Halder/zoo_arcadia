@@ -132,8 +132,6 @@ i {
     color: var(--main);
 }
 
-
-
 /*fin header*/
 
 /*accueil*/
@@ -180,7 +178,7 @@ i {
     transform-origin: top left;
     transform: rotate(0.25turn);
     position: absolute;
-    top: 125%;
+    top: 120%;
     left: 48%;
     z-index: -1;
 }
@@ -367,6 +365,44 @@ i {
     position: relative;
     overflow: hidden;
     margin: 20px;
+}
+
+.card-animal {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 10px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    background-color: #ffffff6b;
+    font-size: large;
+}
+
+.container {
+    height: 100%;
+    width: 50%;
+    margin-left: 25%;
+    background: url(/project/Images_zoo/ai-generated-8201419_1920.png) no-repeat;
+}
+
+.img-details {
+    width: 150px;
+    height: 200px;
+}
+
+.dashboard {
+    font-size: large;
+    margin: 10px;
+}
+
+.action {
+    border: 1px solid black;
+    padding: 25px;
+    margin: 20px 0;
+    border-radius: 5px;
 }
 
 .image_gallery {
@@ -665,7 +701,7 @@ footer {
     padding: 2px 0;
 }
 
-.liste-services a {
+a {
     color: var(--black);
 }
 
