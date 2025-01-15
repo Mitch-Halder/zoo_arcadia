@@ -7,7 +7,7 @@
             $this->pdo=$pdo;
         }
         public function read(){
-            $query=$this->pdo->query('SELECT * FROM user');
+            $query=$this->pdo->query('SELECT * FROM users');
             $users=$query->fetchAll(PDO::FETCH_ASSOC);
             return $users;
         }
@@ -17,21 +17,21 @@
             $roles=$query->fetchAll(PDO::FETCH_ASSOC);
             return $roles;
         }
-        /*public function delete($id){
-            $query='DELETE FROM user WHERE user_id=:id';
+        public function delete($username){
+            $query='DELETE FROM users WHERE username=:username';
             $delete=$this->pdo->prepare($query);
-            $delete->bindParam(':id', $id);
+            $delete->bindParam(':username', $username);
             return $delete->execute();
         }
-        public function update($id, $firstname, $name, $username, $password){
-            $query='UPDATE user SET firstname=:firstname, etat=:etat, images_user=:images_user WHERE user_id=:id';
+        public function update($id, $firstname, $name, $username){
+            $query='UPDATE users SET firstname=:firstname, name=:name, username=:username WHERE username=:id';
             $update=$this->pdo->prepare($query);
             $update->bindParam(':id', $id);
             $update->bindParam(':firstname', $firstname);
-            $update->bindParam(':etat', $etat);
-            $update->bindParam(':images_user', $images_user);
+            $update->bindParam(':name', $name);
+            $update->bindParam(':username', $username);
             return $update->execute();
-        }*/
+        }
         public function create($firstname, $name, $username, $password, $role){
             $query='INSERT INTO users (firstname, name, username, password, role_id) VALUES (:firstname, :name, :username, :password, :role)';
             $create=$this->pdo->prepare($query);

@@ -10,12 +10,12 @@ include './includes/config.php';
             <a href="/project/admin/user.php"><div class="action">
                 <h4>gestion utilisateurs</h4>
             </div></a>
-            <a href="/project/admin/animal.php">><div class="action">
+            <a href="/project/admin/animal.php"><div class="action">
                 <h4>gestion animaux</h4>
             </div></a>
-            <div class="action">
+            <a href="/project/admin/services.php"><div class="action">
                 <h4>gestion services</h4>
-            </div>
+            </div></a>
             <div class="action">
             <h4>gestion horaires</h4>
         </div>

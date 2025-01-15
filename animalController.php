@@ -35,16 +35,55 @@
         }
 
         /* Create animal */
-        public function create($prenom, $etat, $images_animal){
-            $query='INSERT INTO animal (prenom, etat, images_animal) VALUES (:prenom, :etat, :images_animal)';
+        public function create($prenom, $race_id, $habitat_id, $images_animal, $etat=''){
+            try{
+            $image=$_FILES['image'];
+            if ($image['error']===UPLOAD_ERR_OK){
+                print_r('case 1');
+                $uploadDir=__DIR__.'/Images_zoo/';
+                if (is_writable($uploadDir)) {
+                    echo "Le dossier est prêt pour l'upload.";
+                } else {
+                    echo "Le dossier existe mais n'est pas accessible en écriture.";
+                }
+                if (!is_dir($uploadDir)) {
+                    print_r('case 2');
+                    mkdir($uploadDir, 0755, true); 
+                }
+                $fileName=uniqid().'-'.basename($image['name']);
+                $filePath=$uploadDir.$fileName;
+                $validPath=explode('project/', $filePath)[1];
+                if (move_uploaded_file($image['tmp_name'],$filePath)){
+                    print_r('case 3');
+            $query='INSERT INTO animal (prenom, race_id, habitat_id, images_animal, etat) VALUES (:prenom, :race_id, :habitat_id, ARRAY[:images_animal], :etat)';
             $create=$this->pdo->prepare($query);
             $create->bindParam(':prenom', $prenom);
+            $create->bindParam(':race_id', $race_id);
+            $create->bindParam(':habitat_id', $habitat_id);
+            $create->bindParam(':images_animal', $validPath);
             $create->bindParam(':etat', $etat);
-            $create->bindParam(':images_animal', $images_animal);
             return $create->execute();
+        }
+    }
+}
+    catch(Exception $e){
+        echo 'exception : ', $e->getMessage();
+    }
         }
 
         public function getPdo(){
             return $this->pdo;
         } 
+
+        public function getRaces(){
+            $query=$this->pdo->query('SELECT * FROM race');
+            $races=$query->fetchAll(PDO::FETCH_ASSOC);
+            return $races;
+        }
+
+        public function getHabitats(){
+            $query=$this->pdo->query('SELECT * FROM habitat');
+            $habitats=$query->fetchAll(PDO::FETCH_ASSOC);
+            return $habitats;
     }
+}
