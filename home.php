@@ -149,12 +149,14 @@
         <h2 class="heading">services</h2>
             <div class="box-container">
 
-    <?php foreach($resultArray as $service): ?>
+    <?php foreach($resultArray as $service):
+        if ($service['Name'] !=='Horaires'):
+        ?>
             <div class="box" id="<?php
                             echo htmlspecialchars($service['Name']);
                     ?>">
                 <img src="<?php 
-                    echo htmlspecialchars($service['image']);
+                    echo htmlspecialchars($service['Image']);
                     ?>">
                     <div class="content">
                         <h3><?php
@@ -163,7 +165,7 @@
                         </h3>
                     </div>
             </div>
-        <?php endforeach; ?>
+        <?php endif; endforeach; ?>
         </div>
         </section>
         

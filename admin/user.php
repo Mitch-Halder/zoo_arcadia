@@ -65,7 +65,7 @@
 
         <?php if ($user_create): ?>
         
-    <form class="create-user-form" action="admin/user.php?action=create&complete=true" method="POST">
+    <form class="basic-form" action="admin/user.php?action=create&complete=true" method="POST">
         <label for="firstname">Prénom</label>
         <input type="text" name="firstname" value="" required>
         <label for="name">Nom</label>

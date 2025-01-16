@@ -22,19 +22,59 @@ class ServicesController {
         return $this->buildArrayFromIterable($service);
     }
     public function createServices($name, $description, $image) {
+        try{
+            $image=$_FILES['image'];
+            if ($image['error']===UPLOAD_ERR_OK){
+                $uploadDir=__DIR__.'/Images_zoo/services/';
+                if (!is_dir($uploadDir)) {
+                    mkdir($uploadDir, 0755, true); 
+                }
+                $fileName=uniqid().'-'.basename($image['name']);
+                $filePath=$uploadDir.$fileName;
+                $validPath=explode('project/', $filePath)[1];
+                if (move_uploaded_file($image['tmp_name'],$filePath)){
         $service = [
             'Name' => $name ?? '',
             'Description' => $description ?? '',
-            'Image' => $image
+            'Image' => $validPath
         ];
         $result = $this->collection->insertOne($service);
         return $result->getInsertedId();
     }
+} else {
+    $service = [
+        'Name' => $name ?? '',
+        'Description' => $description ?? '',
+        'Image' => ''
+    ];
+    $result = $this->collection->insertOne($service);
+    return $result->getInsertedId();
+}
+    } catch(Exception $e){
+        echo 'exception : ', $e->getMessage();
+    }
+}
     public function update($id, $name, $description, $image){
+        $image=$_FILES['imageUpdate'];
+            if ($image['error']===UPLOAD_ERR_OK){
+                $uploadDir=__DIR__.'/Images_zoo/services/';
+                if (!is_dir($uploadDir)) {
+                    mkdir($uploadDir, 0755, true); 
+                }
+                $fileName=uniqid().'-'.basename($image['name']);
+                $filePath=$uploadDir.$fileName;
+                $validPath=explode('project/', $filePath)[1];
+                if (move_uploaded_file($image['tmp_name'],$filePath)){
+                    $this->collection->updateOne(['_id'=>new ObjectId ($id)], ['$set'=>[
+                        'Name' => $name ?? '',
+                        'Description' => $description ?? '',
+                        'Image' => $validPath
+                    ]]);
+                }
+            }
         $this->collection->updateOne(['_id'=>new ObjectId ($id)], ['$set'=>[
             'Name' => $name ?? '',
-            'Description' => $description ?? '',
-            'Image' => $image
+            'Description' => $description ?? ''
         ]]);
     }
 
@@ -42,7 +82,5 @@ class ServicesController {
         $this->collection->deleteOne(['_id'=>new ObjectId($id)]);
     }
 }
-
-    
 
 ?>

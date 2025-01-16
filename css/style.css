@@ -217,21 +217,21 @@ i {
 /*fin header*/
 
 
-.create-user-form {
+.basic-form {
     display: flex;
     flex-direction: column;
     padding: 10px;
     width: 50%;
 }
 
-.create-user-form input,
-.create-user-form select {
+.basic-form input,
+.basic-form select {
     border: 1px solid black;
     padding: 10px;
     border-radius: 5px;
 }
 
-.create-user-form label {
+.basic-form label {
     margin-top: 10px;
     margin-bottom: 3px;
 }
