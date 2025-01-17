@@ -16,12 +16,12 @@ include './includes/config.php';
             <a href="/project/admin/services.php"><div class="action">
                 <h4>gestion services</h4>
             </div></a>
-            <div class="action">
+            <a href="/project/admin/horaires.php"><div class="action">
             <h4>gestion horaires</h4>
-        </div>
-        <a href="/project/admin/habitat.php"></a><div class="action">
+        </div></a>
+        <a href="/project/admin/habitat.php"><div class="action">
                 <h4>gestion habitats</h4>
-            </div>
+            </div></a>
             <div class="action">
                 <h4>consultation rapports</h4>
             </div>

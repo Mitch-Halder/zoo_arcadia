@@ -17,6 +17,12 @@ class ServicesController {
         }
         return $result;
     }
+
+    public function getHoraire() {
+        $horaires=$this->collection->findOne(['Name'=>'Horaires']);
+        return $horaires;
+    }
+
     public function getAllServices() {
         $service = $this->collection->find();
         return $this->buildArrayFromIterable($service);

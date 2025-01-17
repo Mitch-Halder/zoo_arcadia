@@ -27,11 +27,30 @@
             return $update->execute();
         }
         public function create($nom, $description, $images){
+            try{
+                $image=$_FILES['image'];
+                if ($image['error']===UPLOAD_ERR_OK){
+                    $uploadDir=__DIR__.'/Images_zoo/';
+                    if (!is_dir($uploadDir)) {
+                        mkdir($uploadDir, 0755, true); 
+                    }
+                    $fileName=uniqid().'-'.basename($image['name']);
+                    $filePath=$uploadDir.$fileName;
+                    $validPath=explode('project/', $filePath)[1];
+                    $validPathArray=[$validPath];
+                    $postgresArray='{'.$validPath.'}';
+                    if (move_uploaded_file($image['tmp_name'],$filePath)){
             $query='INSERT INTO habitat (nom, description, images) VALUES (:nom, :description, :images)';
             $create=$this->pdo->prepare($query);
             $create->bindParam(':nom', $nom);
             $create->bindParam(':description', $description);
-            $create->bindParam(':images', $images);
+            $create->bindParam(':images', $postgresArray);
             return $create->execute();
+        }
+    }
+}
+    catch(Exception $e){
+        echo 'exception : ', $e->getMessage();
+    }
         }
     }

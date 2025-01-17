@@ -263,8 +263,10 @@
                         <?php endif; 
                     endforeach; ?>
                 </div>
-            
-
             </section>
+
+            <?php
+            include 'includes/footer.php';
+            ?>
         
     </html>

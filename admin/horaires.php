@@ -55,18 +55,14 @@
     
     //foreach ($allServices as $services){
     ?>
-        <a href="/project/admin/services.php?action=create">
-        <button class="btn">Créer services</button></a>
 
         <?php if ($service_create): ?>
         
-    <form class="basic-form" action="admin/services.php?action=create&complete=true" method="POST" enctype="multipart/form-data">
+    <form class="basic-form" action="admin/horaires.php?action=create&complete=true" method="POST" enctype="multipart/form-data">
         <label for="name">Apellation</label>
         <input type="text" name="name" value="" required>
         <label for="descripion">Description</label>
         <input type="text" name="description" id="description" required>
-        <label for="image">Image</label>
-        <input type="file" name="image" id="image">
         <button class="btn" type="submit">Créer</button>
     </form>
     <?php endif;?>
@@ -74,34 +70,30 @@
         <?php
     $services=$servicesController->buildArrayFromIterable($allServices);
         foreach ($services as $oneServices) : 
-            if ($oneServices['Name']!=='Horaires'):
+            if ($oneServices['Name']=='Horaires'):
             ?>
-    <div class="card">
+    <div class="horaires">
     
-        <h4 style='font-style : italic'><?php echo htmlspecialchars ($oneServices['Name']); ?></h4>
-        <p><?php echo htmlspecialchars ($oneServices['Description'])?></p>
-        <img class="image_gallery" src="<?php echo htmlspecialchars($oneServices['Image'])?>" alt="">
+        <h2><?php echo htmlspecialchars ($oneServices['Name']); ?></h2>
+        <p style="font-size:medium;"><?php echo nl2br (htmlspecialchars($oneServices['Description']))?></p>
 
         <div class="action-buttons">
-        <a href="/project/admin/services.php?action=delete&id=<?php echo htmlspecialchars($oneServices['_id']);?>">
 
-            <button class="btn-red-sm">supprimer</button></a>
-
-            <a href="/project/admin/services.php?action=update&id=<?php echo htmlspecialchars($oneServices['_id']);?>">
+            <a href="/project/admin/horaires.php?action=update&id=<?php echo htmlspecialchars($oneServices['_id']);?>">
 
                     <button class="btn-blue-sm">modifier</button></a>
 
     <?php if (isset($serviceToEdit)&& $oneServices['_id']== $serviceToEdit['_id']): ?>
     
-            <form class="basic-form" action="admin/services.php?action=update&id=<?php echo htmlspecialchars($serviceToEdit['_id']); ?>" method="POST" enctype="multipart/form-data">
-
+            <form class="basic-form" action="admin/horaires.php?action=update&id=<?php echo htmlspecialchars($serviceToEdit['_id']); ?>" method="POST" enctype="multipart/form-data">
+                <label for="name">Horaires</label>
                 <input type="text" name="name" value="<?php echo htmlspecialchars($serviceToEdit['Name']); ?>" required>
-                <input type="text" name="description" value="<?php echo htmlspecialchars($serviceToEdit['Description']); ?>" required>
+                <label for="description">Description</label>
+                <textarea class="horaires-textarea" rows="7" name="description"><?php echo htmlspecialchars($serviceToEdit['Description']); ?></textarea>
                 <input type="hidden" name="existingImage" value="<?php echo htmlspecialchars($serviceToEdit['Image']); ?>">
-                <input type="file" name="imageUpdate" id="imageUpdate">
 
         
-        <button type="submit">Mettre à jour</button>
+        <button class="btn" type="submit">Mettre à jour</button>
         
             </form>
 

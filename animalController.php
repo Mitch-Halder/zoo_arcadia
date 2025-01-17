@@ -39,22 +39,14 @@
             try{
             $image=$_FILES['image'];
             if ($image['error']===UPLOAD_ERR_OK){
-                print_r('case 1');
                 $uploadDir=__DIR__.'/Images_zoo/';
-                if (is_writable($uploadDir)) {
-                    echo "Le dossier est prêt pour l'upload.";
-                } else {
-                    echo "Le dossier existe mais n'est pas accessible en écriture.";
-                }
                 if (!is_dir($uploadDir)) {
-                    print_r('case 2');
                     mkdir($uploadDir, 0755, true); 
                 }
                 $fileName=uniqid().'-'.basename($image['name']);
                 $filePath=$uploadDir.$fileName;
                 $validPath=explode('project/', $filePath)[1];
                 if (move_uploaded_file($image['tmp_name'],$filePath)){
-                    print_r('case 3');
             $query='INSERT INTO animal (prenom, race_id, habitat_id, images_animal, etat) VALUES (:prenom, :race_id, :habitat_id, ARRAY[:images_animal], :etat)';
             $create=$this->pdo->prepare($query);
             $create->bindParam(':prenom', $prenom);
