@@ -2,7 +2,7 @@
 
     /*session_start();*/
     class AnimalController {
-        public $pdo;
+        private $pdo;
         public function __construct(){
             require_once __DIR__.'/includes/config.php';
             $this->pdo=$pdo;
@@ -77,5 +77,10 @@
             $query=$this->pdo->query('SELECT * FROM habitat');
             $habitats=$query->fetchAll(PDO::FETCH_ASSOC);
             return $habitats;
+    }
+    public function getAnimalById($idAnimal){
+        $query=$this->pdo->prepare('SELECT * FROM animal JOIN race ON animal.race_id=race.race_id JOIN habitat ON animal.habitat_id=habitat.habitat_id WHERE animal.animal_id=?');
+        $query->execute([$idAnimal]);
+        return $query->fetchAll(PDO::FETCH_ASSOC);
     }
 }

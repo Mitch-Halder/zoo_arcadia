@@ -1,7 +1,7 @@
 <?php
     require 'vendor/autoload.php';
     include 'includes/header.php';
-    include './includes/config.php';
+    require_once 'animalController.php';
     /*if (!isset($_SESSION['user']))
     {
         header('Location: login.php');
@@ -30,11 +30,8 @@
     }
 
     $result=incrementScore($collection, $idAnimal);
-
-
-    $query=$pdo->prepare('SELECT * FROM animal JOIN race ON animal.race_id=race.race_id JOIN habitat ON animal.habitat_id=habitat.habitat_id WHERE animal.animal_id=?');
-    $query->execute([$idAnimal]);
-    $animal=$query->fetchAll(PDO::FETCH_ASSOC);
+    $animalController=new AnimalController();
+    $animal=$animalController->getAnimalById($idAnimal)
 ?>
 
 <html style="height:100%; overflow:hidden">

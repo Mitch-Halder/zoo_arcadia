@@ -22,9 +22,9 @@ include './includes/config.php';
         <a href="/project/admin/habitat.php"><div class="action">
                 <h4>gestion habitats</h4>
             </div></a>
-            <div class="action">
+            <a href="/project/admin/rapportVeterinaire.php"><div class="action">
                 <h4>consultation rapports</h4>
-            </div>
+            </div></a>
             <div class="action">
                 <h4>Statistiques</h4>
             </div>
