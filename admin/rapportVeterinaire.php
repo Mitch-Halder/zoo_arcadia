@@ -30,7 +30,7 @@ foreach ($allRapports as $entry) {
     $selectedAnimalId = $_POST['animal'] ?? '';
     $selectedDate = $_POST['date'] ?? '';
     ?>
-    <form method="POST" action="">
+    <form class="filter-form" method="POST" action="">
     <p>Selectionner un animal</p>
     <select name="animal">
         <option value="" <?php echo empty($selectedAnimalId) ? 'selected' : ''; ?>>--select--</option>
@@ -46,7 +46,7 @@ foreach ($allRapports as $entry) {
         <option value="<?php echo htmlspecialchars($date);?>"<?php echo ($dateSelected == $date) ? 'selected' : ''; ?>><?php echo htmlspecialchars($date);?></option>
         <?php endforeach;?>
     </select>
-    <button type="submit">Filtrer</button>
+    <button class="btn-blue" type="submit">Filtrer</button>
 </form>
     <div class="card-list">
     <?php   

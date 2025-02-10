@@ -9,12 +9,17 @@
         }
 
     /* Read informations animal */
-        public function read(){
-            $query=$this->pdo->query('SELECT * FROM animal');
-            $habitats=$query->fetchAll(PDO::FETCH_ASSOC);
-            return $habitats;
-        }
-
+    public function read(){
+        $query=$this->pdo->query('SELECT * FROM animal');
+        $habitats=$query->fetchAll(PDO::FETCH_ASSOC);
+        return $habitats;
+    }
+    public function readOrderByName(){
+        $query=$this->pdo->query('SELECT * FROM animal ORDER BY prenom');
+        $habitats=$query->fetchAll(PDO::FETCH_ASSOC);
+        return $habitats;
+    }
+    
         /* Delete animal */
         public function delete($id){
             $query='DELETE FROM animal WHERE animal_id=:id';

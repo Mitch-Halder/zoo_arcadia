@@ -11,7 +11,6 @@
         if($query->rowCount()>0)
         {
             $result=array_diff_key($result, array('password'=>true));
-            print_r($result);
             $_SESSION['user']=$result;
             unset($_SESSION['user']['password']);
             header('Location: home.php');

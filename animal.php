@@ -28,8 +28,9 @@
     
         return $collection->findOne(['animal_id' => $animal_id]);
     }
-
-    $result=incrementScore($collection, $idAnimal);
+    if (!$_SESSION || !$_SESSION['user']){
+        $result=incrementScore($collection, $idAnimal);
+    }
     $animalController=new AnimalController();
     $animal=$animalController->getAnimalById($idAnimal)
 ?>

@@ -25,9 +25,9 @@ include './includes/config.php';
             <a href="/project/admin/rapportVeterinaire.php"><div class="action">
                 <h4>consultation rapports</h4>
             </div></a>
-            <div class="action">
+            <a href="/project/admin/statistiques.php"><div class="action">
                 <h4>Statistiques</h4>
-            </div>
+            </div></a>
         </div>
     </body>
 </html>

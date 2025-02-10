@@ -6,7 +6,7 @@
         }
         $userRole=$_SESSION['user']['role'];
         if (!in_array($userRole, $allowedRoles)){
-            header('Location:home.php');
+            header('Location:/project/home.php');
             exit;
         }
     } 

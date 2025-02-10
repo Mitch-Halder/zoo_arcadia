@@ -1,8 +1,10 @@
 <?php
+    include '../includes/header.php';
+    require_once '../includes/guard.php';
     require_once '../animalController.php';
     require_once '../rapportController.php';
-    session_start();
     /*include './includes/config.php';*/
+    checkAccess(['veterinaire']);
     $animal=new AnimalController();
     $rapport=new RapportController($animal->getPdo());
     $rapport->read();
@@ -16,17 +18,16 @@
                 }
                 break;
                 case 'create':
-                    print_r($_POST);
                     $date=$_POST['date'] ? $_POST['date']:'';
                     $detail=$_POST['detail'] ? $_POST['detail']:'';
                     $selection=$_POST['selection'] ? $_POST['selection']:'';
-                    $user=$_SESSION['user'] ? $_SESSION['user']:'';
+                    $user=$_SESSION['user'] ? $_SESSION['user']['username']:'';
                     $rapport->create($date, $detail, $user, $selection);
                                     break;
         }
     }
     if (!isset($animals)){
-    $animals=$animal->read();
+    $animals=$animal->readOrderByName();
     }    
     ?>
     <head>
@@ -44,7 +45,7 @@
         </style>
     </head>
     <!--<select>-->
-    <form action="employe.php?action=create" method="POST">
+    <form class="basic-form" action="admin/employe.php?action=create" method="POST">
         <div class="options">
         
         
@@ -70,10 +71,12 @@
 
             <?php endforeach;?>
         </div>
+        <label for="date">Date du rapport</label>
             <input type="date" name="date" id="date">
+            <label for="detail">Détail du rapport</label>
             <textarea name="detail" id="detail" cols="30" rows="10"></textarea>
             
     <!--</select>-->
-        <button type="submit">Soumettre</button>
+        <button class="btn-blue" type="submit">Soumettre</button>
     </form>
     
