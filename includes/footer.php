@@ -6,7 +6,7 @@
 
 <footer>
     <div class="contenu-footer">
-        <div class="footer-horaires">
+        <div class="footer-horaires" id="horaires">
             <h3>Horaires</h3>
             <?php
                 echo nl2br(htmlspecialchars($horaires['Description']));

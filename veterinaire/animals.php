@@ -1,11 +1,12 @@
 <?php
-    include './includes/config.php';
-    include 'includes/header.php';
-    require_once '../habitatController.php';
-    
-    $idHabitat=$_GET['id'];
-    $habitatController=new HabitatController();
-    $habitat=$habitatController->getAnimalsByHabitat($idHabitat);
+    include '../includes/header.php';
+    require_once '../includes/guard.php';
+    require_once '../animalController.php';
+    require_once '../alimentationController.php';
+    /*include './includes/config.php';*/
+    //checkAccess(['veterinaire']);
+    $animalController=new AnimalController();
+    $animals=$animalController->readOrderByName();
 ?>
 
 <html>
@@ -14,8 +15,8 @@
 
         <div class="card-list">
 
-            <?php foreach ($habitat as $row) :?>
-                <a href="/project/animal.php?id=<?php echo htmlspecialchars($row['animal_id']);?>">
+            <?php foreach ($animals as $row) :?>
+                <a href="/project/veterinaire/animalAlimentation.php?id=<?php echo htmlspecialchars($row['animal_id']);?>">
                                   
                 <div class="card">
 

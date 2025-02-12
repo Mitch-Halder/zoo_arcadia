@@ -53,4 +53,10 @@
         echo 'exception : ', $e->getMessage();
     }
         }
+
+        public function getAnimalsByHabitat($idHabitat){
+            $query=$this->$pdo->prepare('SELECT * FROM habitat JOIN animal ON habitat.habitat_id=animal.habitat_id WHERE habitat.habitat_id=?');
+            $query->execute([$idHabitat]);
+            return $query->fetchAll(PDO::FETCH_ASSOC);
+        }
     }

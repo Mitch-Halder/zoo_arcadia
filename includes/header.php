@@ -15,6 +15,23 @@
 
     <?php require 'guard.php'; 
     session_start();
+    function getNameByRoleId(){
+        switch ($_SESSION['user']['role_id']) {
+            case 1:
+                echo 'admin';
+                break;
+            case 2:
+                echo 'employe';
+                break;
+            case 3:
+                echo 'veterinaire';
+                break;
+            
+            default:
+                # code...
+                break;
+        }
+    }
     ?>
 
 
@@ -36,9 +53,10 @@
                 <a href="/project/home.php#services">Services</a>
                 <a href="/project/home.php#tarifs">Tarifs</a>
                 <a href="/project/home.php#contact">Contact</a>
+                <a href="/project/home.php#horaires">Horaires</a>
                 <a href="/project/avis.php#avis">Laisser un avis</a>
-                <?php if(isset($_SESSION['user'])&&  $_SESSION['user']['role_id']==1):?>
-                    <a href="/project/admin.php">Admin</a>
+                <?php if(isset($_SESSION['user'])):?>
+                    <a href="/project/<?php getNameByRoleId();?>.php">Tableau de bord</a>
                     <?php endif ?>
 
             </nav>
