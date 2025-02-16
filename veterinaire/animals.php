@@ -1,8 +1,8 @@
 <?php
     include '../includes/header.php';
     require_once '../includes/guard.php';
-    require_once '../animalController.php';
-    require_once '../alimentationController.php';
+    require_once '../controllers/AnimalController.php';
+    require_once '../controllers/AlimentationController.php';
     /*include './includes/config.php';*/
     //checkAccess(['veterinaire']);
     $animalController=new AnimalController();

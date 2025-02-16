@@ -1,5 +1,5 @@
 <?php
-    include_once __DIR__.'/../servicesController.php';
+    include_once __DIR__.'/../controllers/ServicesController.php';
     $servicesController = new ServicesController();
     $horaires=$servicesController->getHoraire();
 ?>

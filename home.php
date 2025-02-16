@@ -1,15 +1,17 @@
 <?php
     require 'vendor/autoload.php';
-    require_once './avisController.php';
+    require_once './controllers/AvisController.php';
+    require_once './controllers/HabitatController.php';
+    require_once './controllers/ServicesController.php';
     include 'includes/header.php';
-    include './includes/config.php';
+    //include './includes/config.php';
     /*if (!isset($_SESSION['user']))
     {
         header('Location: login.php');
         exit();
     }*/
-    $query=$pdo->query('SELECT * FROM habitat');
-    $habitats=$query->fetchAll(PDO::FETCH_ASSOC);
+    $habtatController=new HabitatController();
+    $habitats=$habtatController->read();
 ?>
 
 <html>
@@ -19,7 +21,7 @@
         <div class="content">
             <h3>Profitez de la merveilleuse<br>
                 aventure des animaux</h3>
-                <a href="#footer" class="btn">Rencontrez-nous</a>
+                <a href="/project/home.php#banniere" class="btn">Rencontrez-nous</a>
         </div>
 
     </section>
@@ -128,21 +130,10 @@
     </div>
 </section>
 
-    <?php $client = new MongoDB\Client("mongodb://localhost:27017"); 
-        $database = $client->selectDatabase('ARCADIA'); 
-        $collection = $database->selectCollection('Services');
-    
-        $result = $collection->find();
-            function buildArrayFromIterable($iterable) {
-                $result = [];
-    
-                foreach ($iterable as $element) {
-                    $result[] = (array) $element;
-                }
-    
-                    return $result;
-            }
-        $resultArray=buildArrayFromIterable($result);
+    <?php 
+        $serviceController=new ServicesController();
+        $result=$serviceController->getAllServices();
+        $resultArray=$serviceController->buildArrayFromIterable($result);
     ?>
     
     <section class="services" id="services">
@@ -169,7 +160,7 @@
         </div>
         </section>
         
-        <section class="banniere">
+        <section class="banniere" id="banniere">
             <div class="row">
                 <div class="content">
                     <h3>Restez avec nos animaux</h3>

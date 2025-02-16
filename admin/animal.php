@@ -1,6 +1,6 @@
 <?php
     include '../includes/header.php';
-    require_once '../animalController.php';
+    require_once '../controllers/AnimalController.php';
     $animal_create=false;
             $animal=new AnimalController();
                 if (isset($_GET['action'])){
@@ -57,9 +57,11 @@
                 }
                 if (!isset($animals)){
                 $animals=$animal->read();
-                }  
-                $races=$animal->getRaces();  
+                $races=$animal->getRaces();
                 $habitats=$animal->getHabitats();
+                }  
+                //$races=[];  
+                //$habitats=[];
 ?>
 <a href="/project/admin/animal.php?action=create">
         <button class="btn">Créer animal</button></a>
@@ -136,7 +138,7 @@
         
         <h2>Modifier l'Animal</h2>
     
-            <form action="animal.php?action=update&id=<?php echo htmlspecialchars($animalToEdit['animal_id']); ?>" method="POST">
+            <form action="/project/admin/animal.php?action=update&id=<?php echo htmlspecialchars($animalToEdit['animal_id']); ?>" method="POST">
 
                 <input type="text" name="prenom" value="<?php echo htmlspecialchars($animalToEdit['prenom']); ?>" required>
 

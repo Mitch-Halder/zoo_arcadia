@@ -1,7 +1,7 @@
 <?php
     require 'vendor/autoload.php';
     include 'includes/header.php';
-    require_once 'animalController.php';
+    require_once 'controllers/AnimalController.php';
     /*if (!isset($_SESSION['user']))
     {
         header('Location: login.php');
@@ -79,7 +79,7 @@
 
                             <h4>Prénom</h4><?php echo htmlspecialchars($row['prenom']);?>
                             <h4>Etat</h4><?php echo htmlspecialchars($row['etat']);?>
-                            <h4>Label</h4><?php echo htmlspecialchars($row['label']);?>
+                            <h4>Race</h4><?php echo htmlspecialchars($row['label']);?>
                             
 
             </div>

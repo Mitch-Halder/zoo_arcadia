@@ -763,6 +763,11 @@ form.avis-form {
     align-items: center;
 }
 
+.center-div {
+    display: flex;
+    justify-content: center;
+}
+
 label {
     font-size: 15px;
 }

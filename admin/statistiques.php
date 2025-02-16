@@ -1,7 +1,7 @@
 <?php
     include '../includes/header.php';
-    require_once '../statistiquesController.php';
-    require_once '../animalController.php';
+    require_once '../controllers/StatistiquesController.php';
+    require_once '../controllers/AnimalController.php';
 
     $statistiquesController=new StatistiquesController();
     $statistiques=$statistiquesController->getAllStatistiques();

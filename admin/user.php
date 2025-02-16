@@ -1,6 +1,6 @@
 <?php
     include '../includes/header.php';
-    require_once '../userController.php';
+    require_once '../controllers/UserController.php';
     /*session_start();*/
     /*include './includes/config.php';*/
     $user=new UserController();

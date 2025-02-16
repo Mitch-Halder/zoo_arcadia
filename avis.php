@@ -1,6 +1,6 @@
 <?php
     include 'includes/header.php';
-    require 'avisController.php';
+    require 'controllers/AvisController.php';
     $avisController = new AvisController();
     //print_r($avisController->getAllAvis()); 
     if (isset($_GET['action'])){
@@ -14,17 +14,21 @@
                 break;
                 case 'create':
                     $commentaire=$_POST['commentaire'] ? $_POST['commentaire']:'';
-                    $user=$_SESSION['user'] ? $_SESSION['user']:'';
+                    $user=$_POST['pseudo'] ? $_POST['pseudo']:'';
                     $avisController->createAvis($user, $commentaire);
                                     break;
         }
     }
     ?>
-    <form class="avis-form" action="avis.php?action=create" method="POST">
+    <div class="center-div">
+    <form class="basic-form" action="avis.php?action=create" method="POST">
 
+            <label for="pseudo">Pseudo</label>
+            <input type="text" name="pseudo"/>
             <label for="commentaire">Commentaire</label>
             <textarea name="commentaire" id="commentaire" cols="50" rows="10"></textarea>
             
     <!--</select>-->
         <button class="btn" type="submit">Soumettre</button>
     </form>
+    </div>

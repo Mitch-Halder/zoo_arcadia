@@ -1,6 +1,6 @@
 <?php
     include '../includes/header.php';
-    require_once '../habitatController.php';
+    require_once '../controllers/HabitatController.php';
     $habitat_create=false;
             $habitat=new HabitatController();
                 if (isset($_GET['action'])){

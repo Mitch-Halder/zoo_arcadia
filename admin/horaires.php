@@ -1,6 +1,6 @@
 <?php
     include '../includes/header.php';
-    require '../servicesController.php';
+    require '../controllers/ServicesController.php';
     $servicesController = new ServicesController();
     $allServices = $servicesController->getAllServices(); 
     $service_create=false;

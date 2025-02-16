@@ -1,6 +1,6 @@
 <?php
     include '../includes/header.php';
-    require '../avisController.php';
+    require '../controllers/AvisController.php';
     $avisController = new AvisController();
     $allAvis = $avisController->getAllAvis(); 
     function buildArrayFromIterable($iterable) {

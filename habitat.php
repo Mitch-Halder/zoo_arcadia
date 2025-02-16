@@ -1,7 +1,7 @@
 <?php
-    include './includes/config.php';
+    //include './includes/config.php';
     include 'includes/header.php';
-    require_once '../habitatController.php';
+    require_once './controllers/HabitatController.php';
     
     $idHabitat=$_GET['id'];
     $habitatController=new HabitatController();

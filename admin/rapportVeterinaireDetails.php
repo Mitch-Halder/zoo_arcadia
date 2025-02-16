@@ -2,8 +2,8 @@
     $idAnimal=$_GET['id'];
     print_r($idAnimal); 
     include '../includes/header.php';
-    require_once '../rapportController.php';
-    require_once '../animalController.php';
+    require_once '../controllers/RapportController.php';
+    require_once '../controllers/AnimalController.php';
 
     $animal=new AnimalController();
     $rapportController=new RapportController($animal->getPdo());   

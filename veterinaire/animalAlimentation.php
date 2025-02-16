@@ -1,8 +1,8 @@
 <?php
     $idAnimal=$_GET['id'];
     include '../includes/header.php';
-    require_once '../alimentationController.php';
-    require_once '../animalController.php';
+    require_once '../controllers/AlimentationController.php';
+    require_once '../controllers/AnimalController.php';
 
     $animal=new AnimalController();
     $alimentationController=new AlimentationController($animal->getPdo());   
