@@ -1,11 +1,12 @@
 <?php
     /*session_start();*/
+    require_once __DIR__ . '/../includes/Database.php';
     class RapportController {
         //private $pdo;
 
-        public function __construct($pdo){
+        public function __construct(){
             require_once dirname(__DIR__).'/includes/config.php';
-            $this->pdo=$pdo;
+            $this->pdo=Database::getInstance();
         }
 
         public function read(){

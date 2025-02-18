@@ -1,12 +1,11 @@
 <?php
-    $idAnimal=$_GET['id'];
-    print_r($idAnimal); 
+    $idAnimal=$_GET['id']; 
     include '../includes/header.php';
     require_once '../controllers/RapportController.php';
     require_once '../controllers/AnimalController.php';
 
     $animal=new AnimalController();
-    $rapportController=new RapportController($animal->getPdo());   
+    $rapportController=new RapportController();   
     $rapports=$rapportController->getRapportByAnimalId($idAnimal);
     ?>
     <div class="dashboard">
@@ -41,7 +40,6 @@
             </div>
     
 <?php
-print_r($rapports);
 endforeach;
 ?>
 </div>

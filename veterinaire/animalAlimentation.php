@@ -5,7 +5,7 @@
     require_once '../controllers/AnimalController.php';
 
     $animal=new AnimalController();
-    $alimentationController=new AlimentationController($animal->getPdo());   
+    $alimentationController=new AlimentationController();   
     $alimentations=$alimentationController->getAlimentationByAnimalId($idAnimal);
     if (count($alimentations)>0):
     ?>

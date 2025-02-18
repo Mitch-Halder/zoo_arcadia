@@ -4,7 +4,7 @@
     require_once '../controllers/AnimalController.php';
 
     $animal=new AnimalController();
-    $rapportController=new RapportController($animal->getPdo());   
+    $rapportController=new RapportController();   
     $allRapports=$rapportController->read();
     $animalSelected="";
     $dateSelected="";

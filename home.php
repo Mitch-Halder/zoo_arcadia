@@ -1,5 +1,5 @@
 <?php
-    require 'vendor/autoload.php';
+    //require 'vendor/autoload.php';
     require_once './controllers/AvisController.php';
     require_once './controllers/HabitatController.php';
     require_once './controllers/ServicesController.php';

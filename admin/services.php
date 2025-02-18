@@ -82,7 +82,7 @@
         <p><?php echo htmlspecialchars ($oneServices['Description'])?></p>
         <img class="image_gallery" src="<?php echo htmlspecialchars($oneServices['Image'])?>" alt="">
 
-        <div class="action-buttons">
+        <div>
         <a href="/project/admin/services.php?action=delete&id=<?php echo htmlspecialchars($oneServices['_id']);?>">
 
             <button class="btn-red-sm">supprimer</button></a>

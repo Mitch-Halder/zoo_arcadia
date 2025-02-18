@@ -6,7 +6,7 @@
     /*include './includes/config.php';*/
     //checkAccess(['veterinaire']);
     $animal=new AnimalController();
-    $alimentation=new AlimentationController($animal->getPdo());
+    $alimentation=new AlimentationController();
     $alimentation->read();
     if (isset($_GET['action'])){
         $action=$_GET['action'];

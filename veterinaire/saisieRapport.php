@@ -6,7 +6,7 @@
     /*include './includes/config.php';*/
     checkAccess(['veterinaire']);
     $animal=new AnimalController();
-    $rapport=new RapportController($animal->getPdo());
+    $rapport=new RapportController();
     $rapport->read();
     if (isset($_GET['action'])){
         $action=$_GET['action'];

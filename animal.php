@@ -1,6 +1,7 @@
 <?php
-    require 'vendor/autoload.php';
+    //require 'vendor/autoload.php';
     include 'includes/header.php';
+    include 'includes/config.php';
     require_once 'controllers/AnimalController.php';
     /*if (!isset($_SESSION['user']))
     {
@@ -8,7 +9,7 @@
         exit();
     }*/
     $idAnimal=$_GET['id'];
-    $client = new MongoDB\Client("mongodb://localhost:27017"); 
+    $client = new MongoDB\Client("mongodb+srv://Jean-Michel:Pitchoune131005@cluster0.4ljrt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"); 
     $database = $client->selectDatabase('ARCADIA'); 
     $collection = $database->selectCollection('Statistiques');
     

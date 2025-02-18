@@ -111,7 +111,7 @@
     
     <?php echo htmlspecialchars($h['nom']);?></h4>
 
-    <div class="action-buttons">
+    <div>
         <a href="/project/admin/habitat.php?action=delete&id=<?php echo htmlspecialchars($h['habitat_id'])?>">
 
             <button class="btn-red-sm">supprimer</button></a>
