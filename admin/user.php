@@ -60,7 +60,7 @@
     }    
     ?>
     <div class="main-container">
-    <a href="admin/user.php?action=create">
+    <a href="user.php?action=create">
         <button class="btn">Créer user</button></a>
 
         <?php if ($user_create): ?>
