@@ -60,7 +60,7 @@
     }    
     ?>
     <div class="main-container">
-    <a href="/admin/user.php?action=create">
+    <a href="admin/user.php?action=create">
         <button class="btn">Créer user</button></a>
 
         <?php if ($user_create): ?>
@@ -90,7 +90,7 @@
                 <p>name: <?php echo htmlspecialchars($user['name'])?></p>
                 <p>firstname: <?php echo htmlspecialchars($user['firstname'])?></p>
                 <div class="action-buttons">
-                    <a href="/admin/user.php?action=update&username=<?php echo htmlspecialchars($user['username'])?>">
+                    <a href="admin/user.php?action=update&username=<?php echo htmlspecialchars($user['username'])?>">
                         <button class="btn-blue">
                             Mis à jour
                         </button>
