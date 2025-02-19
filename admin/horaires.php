@@ -79,7 +79,7 @@
 
         <div class="action-buttons">
 
-            <a href="/admin/horaires.php?action=update&id=<?php echo htmlspecialchars($oneServices['_id']);?>">
+            <a href="horaires.php?action=update&id=<?php echo htmlspecialchars($oneServices['_id']);?>">
 
                     <button class="btn-blue-sm">modifier</button></a>
 
