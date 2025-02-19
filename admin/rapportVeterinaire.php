@@ -54,7 +54,7 @@ foreach ($allRapports as $entry) {
             if (($animalSelected == "" || $rapport['animal_id'] == $animalSelected) && ($dateSelected == "" || $rapport['date'] == $dateSelected)):
         ?>
 
-            <a href="/admin/rapportVeterinaireDetails.php?id=<?php echo htmlspecialchars($rapport['animal_id'])?>"> 
+            <a href="rapportVeterinaireDetails.php?id=<?php echo htmlspecialchars($rapport['animal_id'])?>"> 
                 <div class="card" style="font-size:large;">
 
 <?php
