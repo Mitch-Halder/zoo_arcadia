@@ -16,7 +16,7 @@
         <div class="card-list">
 
             <?php foreach ($animals as $row) :?>
-                <a href="/veterinaire/animalAlimentation.php?id=<?php echo htmlspecialchars($row['animal_id']);?>">
+                <a href="animalAlimentation.php?id=<?php echo htmlspecialchars($row['animal_id']);?>">
                                   
                 <div class="card">
 
