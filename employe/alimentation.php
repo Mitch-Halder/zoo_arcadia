@@ -45,7 +45,7 @@
         </style>
     </head>
     <!--<select>-->
-    <form class="basic-form" action="admin/alimentation.php?action=create" method="POST">
+    <form class="basic-form" action="alimentation.php?action=create" method="POST">
         <div class="options">
         
         
