@@ -54,7 +54,7 @@ foreach ($allRapports as $entry) {
             if (($animalSelected == "" || $rapport['animal_id'] == $animalSelected) && ($dateSelected == "" || $rapport['date'] == $dateSelected)):
         ?>
 
-            <a href="/project/admin/rapportVeterinaireDetails.php?id=<?php echo htmlspecialchars($rapport['animal_id'])?>"> 
+            <a href="/admin/rapportVeterinaireDetails.php?id=<?php echo htmlspecialchars($rapport['animal_id'])?>"> 
                 <div class="card" style="font-size:large;">
 
 <?php
@@ -76,7 +76,7 @@ foreach ($allRapports as $entry) {
 
 <?php foreach($imageArray as $imageLink):?>
 
-    <img class="img-details" src="/project/<?php echo htmlspecialchars($imageLink);?>" alt="">
+    <img class="img-details" src="/<?php echo htmlspecialchars($imageLink);?>" alt="">
                     
 <?php endforeach;?>
 

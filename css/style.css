@@ -256,7 +256,7 @@ i {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: url(/project/Images_zoo/ai-generated-8201419_1920.png) no-repeat;
+    background: url(/Images_zoo/ai-generated-8201419_1920.png) no-repeat;
     background-size: cover;
     background-position: top;
 }
@@ -501,7 +501,7 @@ i {
     height: 100%;
     width: 50%;
     margin-left: 25%;
-    background: url(/project/Images_zoo/ai-generated-8201419_1920.png) no-repeat;
+    background: url(/Images_zoo/ai-generated-8201419_1920.png) no-repeat;
 }
 
 .img-details {

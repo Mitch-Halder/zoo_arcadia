@@ -58,7 +58,7 @@
                     $habitats=$habitat->read();
                     }  
 ?>
-<a href="/project/admin/habitat.php?action=create">
+<a href="/admin/habitat.php?action=create">
         <button class="btn">Créer habitat</button></a>
 
         <?php if ($habitat_create): ?>
@@ -98,7 +98,7 @@
 
     <?php foreach($imageArray as $imageLink):?>
 
-        <img class="image_gallery" src="/project/<?php echo htmlspecialchars($imageLink);?>" alt="">
+        <img class="image_gallery" src="/<?php echo htmlspecialchars($imageLink);?>" alt="">
                         
     <?php endforeach;?>
 
@@ -112,11 +112,11 @@
     <?php echo htmlspecialchars($h['nom']);?></h4>
 
     <div>
-        <a href="/project/admin/habitat.php?action=delete&id=<?php echo htmlspecialchars($h['habitat_id'])?>">
+        <a href="/admin/habitat.php?action=delete&id=<?php echo htmlspecialchars($h['habitat_id'])?>">
 
             <button class="btn-red-sm">supprimer</button></a>
 
-                <a href="/project/admin/habitat.php?action=update&id=<?php echo htmlspecialchars($h['habitat_id'])?>">
+                <a href="/admin/habitat.php?action=update&id=<?php echo htmlspecialchars($h['habitat_id'])?>">
 
                     <button class="btn-blue-sm">modifier</button></a>
 

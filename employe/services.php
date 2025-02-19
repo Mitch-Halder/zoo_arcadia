@@ -55,7 +55,7 @@
     
     //foreach ($allServices as $services){
     ?>
-        <a href="/project/admin/services.php?action=create">
+        <a href="/admin/services.php?action=create">
         <button class="btn">Créer services</button></a>
 
         <?php if ($service_create): ?>
@@ -83,11 +83,11 @@
         <img class="image_gallery" src="<?php echo htmlspecialchars($oneServices['Image'])?>" alt="">
 
         <div class="action-buttons">
-        <a href="/project/admin/services.php?action=delete&id=<?php echo htmlspecialchars($oneServices['_id']);?>">
+        <a href="/admin/services.php?action=delete&id=<?php echo htmlspecialchars($oneServices['_id']);?>">
 
             <button class="btn-red-sm">supprimer</button></a>
 
-            <a href="/project/admin/services.php?action=update&id=<?php echo htmlspecialchars($oneServices['_id']);?>">
+            <a href="/admin/services.php?action=update&id=<?php echo htmlspecialchars($oneServices['_id']);?>">
 
                     <button class="btn-blue-sm">modifier</button></a>
 

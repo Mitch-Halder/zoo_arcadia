@@ -24,7 +24,7 @@
         }
         $userRole=getNameByRoleIdGuard();
         if (!in_array($userRole, $allowedRoles)){
-            header('Location:/project/home.php');
+            header('Location:/home.php');
             exit;
         }
     } 

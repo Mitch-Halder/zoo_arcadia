@@ -16,7 +16,7 @@
         <div class="card-list">
 
             <?php foreach ($animals as $row) :?>
-                <a href="/project/veterinaire/animalAlimentation.php?id=<?php echo htmlspecialchars($row['animal_id']);?>">
+                <a href="/veterinaire/animalAlimentation.php?id=<?php echo htmlspecialchars($row['animal_id']);?>">
                                   
                 <div class="card">
 
@@ -38,7 +38,7 @@
                     
                         <?php foreach($imageArray as $imageLink):?>
 
-                            <img class="image_gallery" src="/project/<?php echo htmlspecialchars($imageLink);?>" alt="">
+                            <img class="image_gallery" src="/<?php echo htmlspecialchars($imageLink);?>" alt="">
 
                                 <?php endforeach;?>
                     

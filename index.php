@@ -1,5 +1,7 @@
 <?php
 include './includes/config.php';
+header('Location:home.php');
+exit;
 ?>
 <html>
     <h2>

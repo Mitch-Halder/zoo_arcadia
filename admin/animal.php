@@ -63,7 +63,7 @@
                 //$races=[];  
                 //$habitats=[];
 ?>
-<a href="/project/admin/animal.php?action=create">
+<a href="/admin/animal.php?action=create">
         <button class="btn">Créer animal</button></a>
 
         <?php if ($animal_create): ?>
@@ -112,7 +112,7 @@
 
     <?php foreach($imageArray as $imageLink):?>
 
-        <img class="image_gallery" src="/project/<?php echo htmlspecialchars($imageLink);?>" alt="">
+        <img class="image_gallery" src="/<?php echo htmlspecialchars($imageLink);?>" alt="">
                         
     <?php endforeach;?>
 
@@ -126,11 +126,11 @@
     <?php echo htmlspecialchars($h['prenom']);?></h4>
 
     <div>
-        <a href="/project/admin/animal.php?action=delete&id=<?php echo htmlspecialchars($h['animal_id'])?>">
+        <a href="/admin/animal.php?action=delete&id=<?php echo htmlspecialchars($h['animal_id'])?>">
 
             <button class="btn-red-sm">supprimer</button></a>
 
-                <a href="/project/admin/animal.php?action=update&id=<?php echo htmlspecialchars($h['animal_id'])?>">
+                <a href="/admin/animal.php?action=update&id=<?php echo htmlspecialchars($h['animal_id'])?>">
 
                     <button class="btn-blue-sm">modifier</button></a>
 
@@ -138,7 +138,7 @@
         
         <h2>Modifier l'Animal</h2>
     
-            <form action="/project/admin/animal.php?action=update&id=<?php echo htmlspecialchars($animalToEdit['animal_id']); ?>" method="POST">
+            <form action="/admin/animal.php?action=update&id=<?php echo htmlspecialchars($animalToEdit['animal_id']); ?>" method="POST">
 
                 <input type="text" name="prenom" value="<?php echo htmlspecialchars($animalToEdit['prenom']); ?>" required>
 

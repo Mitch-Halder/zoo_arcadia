@@ -65,7 +65,7 @@
                 ?>
             <label class="option-item">
       <input type="radio" name="selection" value="<?php echo htmlspecialchars($h['animal_id'])?>" class="radio-option">
-      <img src="/project/<?php echo htmlspecialchars($imageArray[0])?>" alt="Image 1" class="option-image">
+      <img src="/<?php echo htmlspecialchars($imageArray[0])?>" alt="Image 1" class="option-image">
       <span><?php echo htmlspecialchars($h['prenom'])?></span>
     </label>
 

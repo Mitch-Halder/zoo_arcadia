@@ -29,7 +29,7 @@
 
 <?php foreach($imageArray as $imageLink):?>
 
-    <img class="img-details" src="/project/<?php echo htmlspecialchars($imageLink);?>" alt="">
+    <img class="img-details" src="/<?php echo htmlspecialchars($imageLink);?>" alt="">
          <p>Prénom : <?php echo htmlspecialchars($alimentations[0]['prenom']);?></p>           
 <?php endforeach; endif;?>
     <?php

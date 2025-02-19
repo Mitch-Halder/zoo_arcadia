@@ -17,22 +17,19 @@
 <html>
 
     <section class="accueil" id="accueil">  
-
         <div class="content">
             <h3>Profitez de la merveilleuse<br>
                 aventure des animaux</h3>
-                <a href="/project/home.php#banniere" class="btn">Rencontrez-nous</a>
+                <a href="/home.php#banniere" class="btn">Rencontrez-nous</a>
         </div>
-
     </section>
 
     <section class="a_propos" id="a_propos">
-            <h2 class="deco-title">A propos de nous</h2>
-                <div class="box-container">
-                    <div class="image">
-                        <img src="/project/Images_zoo/caméléon1.jpg" alt="">
-                    </div>
-
+        <h2 class="deco-title">A propos de nous</h2>
+            <div class="box-container">
+                <div class="image">
+                    <img src="/Images_zoo/caméléon1.jpg" alt="">
+                </div>
                 <div class="content">
                     <h3 class="title">vous pouvez trouver les espèces les plus populaires</h3>
                         <p>ARCADIA est situé près de la forêt de Brocéliande en Bretagne depuis 1960. Notre zoo possède toute un pléiade d'animaux de toutes espèces.<br>
@@ -42,12 +39,10 @@
                                     <i class="fas fa-graduation-cap"></i>
                                         <h3>Nous élevons</h3>
                                 </div>
-
                                 <div class="icons">
                                     <i class="fas fa-bullhorn"></i>
                                         <h3>Nous jouons</h3>
                                 </div>
-
                                 <div class="icons">
                                     <i class="fas fa-book-open"></i>
                                         <h3>Apprenons à connaître</h3>
@@ -61,17 +56,14 @@
             <div class="slider">
                 <div class="slides">
                     <div class="slide">
-                            <img src="Images_zoo/Jungle/chimpanze.jpg" alt="chimpanzé">
+                        <img src="Images_zoo/Jungle/chimpanze.jpg" alt="chimpanzé">
                     </div>
-
                     <div class="slide">
                         <img src="Images_zoo/Jungle/panthere_noire.jpg" alt="Pantère_noire">
                     </div>
-
                     <div class="slide">
                         <img src="Images_zoo/Jungle/macaque.jpg" alt="macaque">
                     </div>
-
                     <div class="slide">
                         <img src="Images_zoo/Serpents/mamba_noir.jpg" alt="mamba_noir">
                     </div>
@@ -81,54 +73,48 @@
         
     <section class="habitats" id="habitats">
         <h2 class="heading">
-        habitats
+            habitats
         </h2>
             <div class="box-container">
 
                 <?php foreach ($habitats as $row) :?>
         
-            <div class="box">
+                    <div class="box">
 
-                <?php
-                    $imageLinks=$row['images'];
-                        if ($imageLinks){
-                            $imageLinks=trim($imageLinks,'{}');
-                            $imageArray=explode(',', $imageLinks);
-                            $imageArray = array_map(function($item) {
+                    <?php
+                        $imageLinks=$row['images'];
+                            if ($imageLinks){
+                                $imageLinks=trim($imageLinks,'{}');
+                                $imageArray=explode(',', $imageLinks);
+                                $imageArray = array_map(function($item) {
                                 return str_replace("'", "", $item);
-                            }, $imageArray);
-                        }
-                ?>
+                                }, $imageArray);
+                            }
+                    ?>
+                
+                    <?php if (!empty($imageArray)):?>
+                        <div class="image-gallery">
 
-                <?php if (!empty($imageArray)):?>
-                    <div class="image-gallery">
-
-                <?php foreach($imageArray as $imageLink):?>
-                    <img src="/project/<?php echo htmlspecialchars($imageLink);?>" alt="">
+                            <?php foreach($imageArray as $imageLink):?>
+                                <img src="/<?php echo htmlspecialchars($imageLink);?>" alt="">
 
                 <?php endforeach;?>
-                    </div>
+                        </div>
 
                 <?php else: ?>
-
                         <p>
                             aucune image disponible pour cet habitat
                         </p>
-
                 <?php endif;?>
-
                     <div class="content">
-
                         <h3><?php echo htmlspecialchars($row['nom']);?></h3>
-                            <a class='btn' href="/project/habitat.php?id=<?php echo htmlspecialchars($row['habitat_id'])?>">
+                            <a class='btn' href="/habitat.php?id=<?php echo htmlspecialchars($row['habitat_id'])?>">
                                 Voir détails</a>
+                        </div>
                     </div>
+                <?php endforeach;?>
             </div>
-        
-        <?php endforeach;?>
-    
-    </div>
-</section>
+    </section>
 
     <?php 
         $serviceController=new ServicesController();
@@ -139,26 +125,25 @@
     <section class="services" id="services">
         <h2 class="heading">services</h2>
             <div class="box-container">
-
-    <?php foreach($resultArray as $service):
-        if ($service['Name'] !=='Horaires'):
-        ?>
-            <div class="box" id="<?php
-                            echo htmlspecialchars($service['Name']);
+                <?php foreach($resultArray as $service):
+                    if ($service['Name'] !=='Horaires'):
+                ?>
+                <div class="box" id="<?php
+                    echo htmlspecialchars($service['Name']);
                     ?>">
-                <img src="<?php 
+                        <img src="<?php 
                     echo htmlspecialchars($service['Image']);
                     ?>">
                     <div class="content">
                         <h3><?php
                             echo htmlspecialchars($service['Name']);
-                    ?>
+                            ?>
                         </h3>
                     </div>
+                </div>
+                    <?php endif; endforeach;?>
             </div>
-        <?php endif; endforeach; ?>
-        </div>
-        </section>
+    </section>
         
         <section class="banniere" id="banniere">
             <div class="row">
